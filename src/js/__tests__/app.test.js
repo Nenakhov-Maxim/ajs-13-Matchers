@@ -37,3 +37,15 @@ test('appCheck 2', () => {
     { name: 'лучник', health: 10 },
   ]);
 });
+
+test('appCheck 3', () => {
+  expect(alphabetically(alphabetically([
+    { name: 'мечник', health: 75 },
+    { name: 'маг', health: 20 },
+    { name: 'лучник', health: 10 },
+  ]))).not.toBe([
+    { name: 'мечник', health: 75 },
+    { name: 'маг', health: 20 },
+    { name: 'лучник', health: 10 },
+  ]);
+});
