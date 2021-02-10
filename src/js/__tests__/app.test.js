@@ -1,22 +1,39 @@
 /* eslint-disable import/no-named-as-default-member */
 // eslint-disable-next-line import/no-named-as-default
-import checkHealth from '../app';
+import alphabetically from '../app';
 
 test('appCheck 0', () => {
-  expect(checkHealth({ name: 'Маг', health: 90 })).toBe('Green');
+  expect(alphabetically(alphabetically([
+    { name: 'мечник', health: 10 },
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+  ]))).toEqual([
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+    { name: 'мечник', health: 10 },
+  ]);
 });
+
 test('appCheck 1', () => {
-  expect(checkHealth({ name: 'Маг', health: 50 })).toBe('Yellow');
+  expect(alphabetically(alphabetically([
+    { name: 'мечник', health: 60 },
+    { name: 'маг', health: 90 },
+    { name: 'лучник', health: 40 },
+  ]))).toEqual([
+    { name: 'маг', health: 90 },
+    { name: 'мечник', health: 60 },
+    { name: 'лучник', health: 40 },
+  ]);
 });
+
 test('appCheck 2', () => {
-  expect(checkHealth({ name: 'Маг', health: 35 })).toBe('Yellow');
-});
-test('appCheck 3', () => {
-  expect(checkHealth({ name: 'Маг', health: 15 })).toBe('Yellow');
-});
-test('appCheck 4', () => {
-  expect(checkHealth({ name: 'Маг', health: 5 })).toBe('Red');
-});
-test('appCheck 5', () => {
-  expect(checkHealth({ name: 'Маг', health: -10 })).toBe(0);
+  expect(alphabetically(alphabetically([
+    { name: 'мечник', health: 75 },
+    { name: 'маг', health: 20 },
+    { name: 'лучник', health: 10 },
+  ]))).toEqual([
+    { name: 'мечник', health: 75 },
+    { name: 'маг', health: 20 },
+    { name: 'лучник', health: 10 },
+  ]);
 });

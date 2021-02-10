@@ -1,15 +1,10 @@
+/* const hero = [
+  { name: 'мечник', health: 10 },
+  { name: 'маг', health: 100 },
+  { name: 'лучник', health: 80 },
+]; */
 
-export default function checkHealth(param) {
-  let healthyType;
-  if (param.health > 50) {
-    healthyType = 'Green';
-    return healthyType;
-  } if (param.health >= 15 && param.health <= 50) {
-    healthyType = 'Yellow';
-    return healthyType;
-  } if (param.health < 15 && param.health >= 0) {
-    healthyType = 'Red';
-    return healthyType;
-  }
-  return 0;
+export default function alphabetically(param) {
+  const alphabeticallyArray = param.sort((a, b) => b.health - a.health);
+  return alphabeticallyArray;
 }
